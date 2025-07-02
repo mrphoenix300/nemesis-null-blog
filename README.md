@@ -49,14 +49,13 @@ cd nemesis-null-blog
 2. **Install dependencies:**
 
 ```bash
-npm install -g nodemon #if it have error visit https://www.npmjs.com/package/nodemon
 npm install && npm audit fix
 ```
 
 3. **Run the server:**
 
 ```bash
-npm index.js
+node index.js
 ```
 
 4. **Visit:**
