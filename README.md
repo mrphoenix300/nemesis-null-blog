@@ -87,8 +87,5 @@ npm index.js
 
 **Nemesis-Null**
 Student | Developer | Explorer of Chaos
+
 ---
-
-### 📄 License
-
-This project is under the [MIT License].
