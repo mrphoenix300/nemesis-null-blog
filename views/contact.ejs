@@ -1,0 +1,27 @@
+<%- include("partials/header.ejs") %>
+
+<div class="container py-5">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <h1 class="mb-4 text-center text-warning">Contact</h1>
+        <form>
+          <div class="mb-3">
+            <label for="email" class="form-label text-white">Email address</label>
+            <input type="email" class="form-control" id="email" placeholder="your@email.com" required disabled>
+          </div>
+
+          <div class="mb-3">
+            <label for="message" class="form-label text-white">Your Message</label>
+            <textarea class="form-control" id="message" rows="5" placeholder="Write your message here..." required disabled></textarea>
+          </div>
+
+          <div class="d-grid">
+            <button type="submit" class="btn btn-warning" disabled>Send</button>
+          </div>
+        </form>
+      </div>
+    </div>
+</div>
+
+
+<%- include("partials/footer.ejs")%>

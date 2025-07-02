@@ -1,0 +1,76 @@
+<%- include("partials/header.ejs") %>
+
+
+<div class="container">
+    <%if (locals.posts && locals.posts.length > 1) {%>
+        <%for (let i = posts.length - 1; i >= 0; i--) { %>
+            <div class="grid text-center"></div>
+                <div class="g-col-6 my-3 py-3">
+                    <div class="card text-bg-secondary text-center shadow">
+                        <div class="card-header">
+                            <%= posts[i].title %>
+                        </div>
+                        <div class="card-body">
+                            <p class="card-text"><%= posts[i].content %></p>
+                            <div class="d-flex flex-row">
+                                <form action="/edit-post/<%= posts[i].id%>" method="POST">
+                                <button class="btn btn-warning my-3" type="submit">Edit</button>
+                                </form>
+                                <form action="/delete-post/<%= posts[i].id%>" method="POST">
+                                    <button class="btn btn-danger my-3 mx-3" type="submit">Delete</button>
+                                </form>
+                                <form action="/view-post/<%= posts[i].id%>" method="POST">
+                                    <button class="btn btn-info my-3" type="submit">View</button>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="card-footer text-body-secondary">
+                            <%=posts[i].date%>
+                        </div>
+                    </div>
+                </div
+            </div>
+        <%}%>   
+    <%} else if (locals.posts.length <= 1){%>
+        <div class="card text-bg-secondary text-center shadow align-items-center my-3 py-3">
+            <div class="card-header">
+                Create a new post
+            </div> 
+            <a class="btn btn-warning" href="/post" role="button" style="width: 18rem;">New Post</a>
+            <div class="card-footer text-body-secondary"></div>
+        </div>
+        <% if (locals.posts.length !== 0) {%>
+        <div class="grid text-center">
+            <div class="g-col-6 my-3 py-3">
+                <div class="card text-bg-secondary text-center shadow">
+                    <div class="card-header">
+                        <%= posts[0].title %>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text"><%= posts[0].content %></p>
+                        <div class="d-flex flex-row">
+                            <form action="/edit-post/<%= posts[0].id%>" method="POST">
+                                <button class="btn btn-warning my-3" type="submit">Edit</button>
+                            </form>
+                            <form action="/delete-post/<%= posts[0].id%>" method="POST">
+                                <button class="btn btn-danger my-3 mx-3" type="submit">Delete</button>
+                            </form>
+                            <form action="/view-post/<%= posts[0].id%>" method="POST">
+                                <button class="btn btn-info my-3" type="submit">View</button>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="card-footer text-body-secondary">
+                        <%=posts[0].date%>
+                    </div>
+                </div>
+            </div
+        </div>
+        <%}%>
+    <%}%>        
+</div>
+
+
+
+
+<%- include("partials/footer.ejs") %>

@@ -1,0 +1,33 @@
+<%- include("partials/header.ejs") %>
+
+<div class="container pt-5">
+    <div class="row justify-content-center">
+      <div class="col-md-8">
+
+        <div class="card shadow">
+            <div class="card-body">
+                <h3 class="card-title mb-4">Edit the post</h3>
+
+                <% if (locals.post) {%>
+                    <form action="/update-post/<%= post.id%>" method="POST">
+                        <div class="mb-3">
+                            <label for="title" class="form-label">Title:</label>
+                            <textarea class="form-control" name="title" rows="1" id="title"><%= post.title %></textarea>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="content" class="form-label">Content:</label>
+                            <textarea class="form-control" id="content" name="content" rows="8" placeholder="Leave the text content here" required><%= post.content %></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-warning shadow">Update</button>
+                    </form>
+                <%}%>
+            </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+<%- include("partials/footer.ejs") %>
